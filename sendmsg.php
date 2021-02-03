@@ -7,9 +7,12 @@ $from = $_POST['from_email'];
 $subject = $_POST['subject'];
 $message = $_POST['msg'];
 
+$mydate=getdate(date("U"));
+$day = "$mydate[month] $mydate[mday], $mydate[year]";
+
 //    echo $to,$from,$subject,$message;
 //    Query
-$insert_mail_sql = "INSERT INTO `mail` (`to_mail`,`from_mail`,`subject`,`message`) VALUES ('$to','$from','$subject','$message')";
+$insert_mail_sql = "INSERT INTO `mail` (`to_mail`,`from_mail`,`subject`,`message`,`day`) VALUES ('$to','$from','$subject','$message','$day')";
 //    echo $insert_mail_sql;
 $result = $conn->query($insert_mail_sql);
 if ($result) {

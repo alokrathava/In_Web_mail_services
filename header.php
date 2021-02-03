@@ -52,7 +52,7 @@ if (!isset($_SESSION['id'])) { ?>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page"
-                                   href="#"><?php echo $_SESSION['name']; ?></a>
+                                   href="index.php"><?php echo $_SESSION['name']; ?></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="message.php">Message</a>
