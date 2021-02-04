@@ -32,10 +32,10 @@ include 'header.php';
 <div style="margin-top: 120px;background-color: #eeeeee; margin-left: 50px;margin-right: 50px;">
     <div class="card border-primary mb-3" style="max-width: auto;">
 <!--        <div class="card-header"></div>-->
-        <form method="POST" action="sendmsg.php" name="mail">
+        <form method="GET" action="email_pdf.php" name="mail">
             <div class="card-body text-primary">
                 <div>
-                    <h5 class="card-title">NEW MESSAGE</h5>
+                    <h3 class="card-title" style="margin-bottom:20px ">NEW MESSAGE</h3>
                     <?php
                     $mymail = $_SESSION['email'];
                     $getmail_sql = "SELECT `message`,`from_mail`,`id`,`day`,`subject` FROM `mail` WHERE to_mail='$mymail'";
@@ -57,15 +57,18 @@ include 'header.php';
                             echo '<p style="font-size: 15px;color: black;margin-left:8px;">' . $message . '</p>';
                             echo '<p style="margin-left:8px;">' . $day . '</p>';
 //                            echo '<a href="" class="btn btn-danger" style="margin-bottom:15px; margin-left: 8px;">Delete</a> <button onclick="window.print()" class="btn btn-success" style="margin-bottom: 15px;">Print The Mail</button>';
-//                            echo '<button onclick="window.print()" class="btn btn-success" style="margin-bottom: 15px;">Print The Mail</button>';
+                            echo '<button type="submit" class="btn btn-success" style="margin-bottom: 15px;">Send Message</button>';
                             echo '</div>';
+
+                            echo '<input type="hidden" name="send_pdf_email">';
+
                         }
                     }
                     ?>
                 </div>
-                <a href="#" onclick="window.print()" class="btn btn-success" style="margin-top:15px;margin-bottom: 15px;">
-                    Print The Mail
-                </a>
+<!--                <button  onclick="window.print()" class="btn btn-success" style="margin-top:15px;margin-bottom: 15px;">-->
+<!--                    Send Email Transcript-->
+<!--                </button>-->
             </div>
         </form>
     </div>
@@ -73,3 +76,5 @@ include 'header.php';
 </div>
 </body>
 </html>
+
+ 
