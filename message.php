@@ -31,7 +31,7 @@ include 'header.php';
 ?>
 <div style="margin-top: 120px;background-color: #eeeeee; margin-left: 50px;margin-right: 50px;">
     <div class="card border-primary mb-3" style="max-width: auto;">
-        <div class="card-header">New Mail</div>
+<!--        <div class="card-header"></div>-->
         <form method="POST" action="sendmsg.php" name="mail">
             <div class="card-body text-primary">
                 <div>
@@ -39,7 +39,7 @@ include 'header.php';
                     <?php
                     $mymail = $_SESSION['email'];
                     $getmail_sql = "SELECT `message`,`from_mail`,`id`,`day`,`subject` FROM `mail` WHERE to_mail='$mymail'";
-                    //                        echo $getmail_sql;
+                    // echo $getmail_sql;
                     $result = $conn->query($getmail_sql);
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
@@ -57,12 +57,15 @@ include 'header.php';
                             echo '<p style="font-size: 15px;color: black;margin-left:8px;">' . $message . '</p>';
                             echo '<p style="margin-left:8px;">' . $day . '</p>';
 //                            echo '<a href="" class="btn btn-danger" style="margin-bottom:15px; margin-left: 8px;">Delete</a> <button onclick="window.print()" class="btn btn-success" style="margin-bottom: 15px;">Print The Mail</button>';
-                            echo '<button onclick="window.print()" class="btn btn-success" style="margin-bottom: 15px;">Print The Mail</button>';
+//                            echo '<button onclick="window.print()" class="btn btn-success" style="margin-bottom: 15px;">Print The Mail</button>';
                             echo '</div>';
                         }
                     }
                     ?>
                 </div>
+                <a href="#" onclick="window.print()" class="btn btn-success" style="margin-top:15px;margin-bottom: 15px;">
+                    Print The Mail
+                </a>
             </div>
         </form>
     </div>
